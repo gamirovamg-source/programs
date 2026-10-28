@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>КодВектор — закажите сайт или программу</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;700&display=swap">
+<style>
+:root{--bg:#EDEFFF;--ink:#12143A;--mut:#53578A;--surf:#FFFFFF;--line:#C5CBF5;--acc:#3A3DFF;--acc2:#FF5C8A;--on:#FFFFFF;
+--f1:'Unbounded','Onest',system-ui,sans-serif;--f2:'Onest',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D0F2B;--ink:#EEF0FF;--mut:#9EA3D6;--surf:#171A46;--line:#2B2F6B;--acc:#7C8BFF;--acc2:#FF7AA2;--on:#0D0F2B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0D0F2B;--ink:#EEF0FF;--mut:#9EA3D6;--surf:#171A46;--line:#2B2F6B;--acc:#7C8BFF;--acc2:#FF7AA2;--on:#0D0F2B;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--f2);-webkit-font-smoothing:antialiased}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,header,footer{position:relative;z-index:1}
+.w{max-width:1100px;margin:0 auto;padding-inline:clamp(18px,5vw,40px)}
+header .w{display:flex;justify-content:space-between;align-items:center;padding-block:18px}
+.logo{font:700 1.15rem var(--f1);letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
+.pill{display:inline-block;padding:12px 22px;border-radius:999px;background:var(--acc);color:var(--on);font:600 .95rem var(--f2);text-decoration:none;border:0;cursor:pointer;transition:transform .2s}
+.pill:hover{transform:translateY(-2px)}
+.pill.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+:focus-visible{outline:3px solid var(--acc2);outline-offset:3px}
+.hero{min-height:min(86vh,760px);display:flex;align-items:center;padding-block:40px}
+h1{font:700 clamp(2rem,6.4vw,4rem)/1.08 var(--f1);letter-spacing:-.03em;margin:0 0 22px;max-width:14em}
+.l{display:block;animation:up .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--d)*.13s)}
+@keyframes up{from{transform:translateY(45%);opacity:0}}
+.sub{max-width:30em;color:var(--mut);font-size:1.15rem;margin:0 0 30px;animation:up .9s .45s cubic-bezier(.2,.8,.2,1) both}
+.cta{display:flex;gap:12px;flex-wrap:wrap;animation:up .9s .6s cubic-bezier(.2,.8,.2,1) both}
+h2{font:700 clamp(1.5rem,4vw,2.3rem)/1.15 var(--f1);letter-spacing:-.02em;margin:0 0 28px}
+.svc{list-style:none;margin:0 0 90px;padding:0;max-width:640px}
+.svc li{padding:20px 0;border-top:1px solid var(--line);transition:padding .25s}
+.svc li:hover{padding-left:12px}
+.svc h3{font:600 1.15rem var(--f2);margin:0 0 4px}
+.svc p{margin:0;color:var(--mut)}
+#order{padding-bottom:80px}
+.wiz{background:color-mix(in srgb,var(--surf) 90%,transparent);border:1px solid var(--line);border-radius:24px;padding:clamp(18px,4vw,36px);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);max-width:760px}
+.bar{display:flex;gap:6px;margin-bottom:10px}
+.bar i{flex:1;height:5px;border-radius:9px;background:var(--line);transition:background .4s}
+.bar i.on{background:var(--acc)}
+#cnt{margin:0 0 22px;color:var(--mut);font-size:.9rem}
+#panel.in{animation:slide .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes slide{from{opacity:0;transform:translateX(24px)}}
+#panel h3{font:600 1.35rem/1.25 var(--f2);margin:0 0 6px;outline:0}
+.hint{margin:0 0 16px;color:var(--mut)}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:16px}
+.opt{font:500 1rem var(--f2);color:var(--ink);text-align:left;padding:15px 16px;border-radius:14px;border:1.5px solid var(--line);background:transparent;cursor:pointer;transition:border-color .2s,background .2s,transform .15s}
+.opt:hover{border-color:var(--acc)}
+.opt[aria-pressed="true"]{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 16%,transparent);transform:scale(1.02)}
+label{display:block;margin-top:16px;font-weight:500}
+input,textarea{display:block;width:100%;margin-top:6px;padding:13px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:400 1rem var(--f2)}
+pre{white-space:pre-wrap;word-break:break-word;margin:16px 0 0;padding:16px;border-radius:14px;background:var(--bg);border:1px solid var(--line);font:400 .95rem/1.55 var(--f2)}
+#err{min-height:1.4em;margin:14px 0 0;color:var(--acc2);font-weight:500}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:8px}
+#send{background:#25D366;color:#06240F}
+.note{margin-top:18px;color:var(--mut);font-size:.95rem;max-width:760px}
+footer{padding:26px 0 40px;color:var(--mut);border-top:1px solid var(--line)}
+footer a{color:var(--ink)}
+@media (max-width:700px){.hero{min-height:auto;padding-block:30px 60px}.opts{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<header><div class="w"><a class="logo" href="#top">Заказ Код</a><a class="pill" href="#order">Оставить заявку</a></div></header>
+<main id="top">
+<section class="hero"><div class="w">
+<h1><span class="l" style="--d:1">Пишем сайты,</span><span class="l" style="--d:2">приложения и ботов</span><span class="l" style="--d:3">под ключ</span></h1>
+<p class="sub">Расскажите о задаче за шесть коротких шагов — готовая заявка сама откроется в WhatsApp. Останется нажать «Отправить».</p>
+<div class="cta"><a class="pill" href="#order">Оформить заявку</a><a class="pill ghost" href="#services">Что мы делаем</a></div>
+</div></section>
+<section id="services"><div class="w">
+<h2>Что мы разрабатываем</h2>
+<ul class="svc">
+<li><h3>Сайты и интернет-магазины</h3><p>От лендинга до магазина с оплатой, анимациями и 3D-графикой.</p></li>
+<li><h3>Веб- и мобильные приложения</h3><p>Личные кабинеты, сервисы, внутренние системы для бизнеса.</p></li>
+<li><h3>Боты и автоматизация</h3><p>Боты для Telegram и WhatsApp, интеграции с CRM и платёжными сервисами.</p></li>
+<li><h3>Программы для компьютера</h3><p>Утилиты и рабочие инструменты для Windows, macOS и Linux.</p></li>
+</ul>
+</div></section>
+<section id="order"><div class="w">
+<h2>Заявка по шагам</h2>
+<div class="wiz">
+<div class="bar" id="bar"></div>
+<p id="cnt"></p>
+<div id="panel"></div>
+<p id="err" role="alert"></p>
+<div class="nav">
+<button type="button" class="pill ghost" id="back">Назад</button>
+<button type="button" class="pill" id="next">Далее</button>
+<a class="pill" id="send" target="_blank" rel="noopener" hidden>Отправить в WhatsApp</a>
+</div>
+</div>
+<p class="note">WhatsApp откроется с уже написанным текстом заявки на номер +7 999 999-38-34. Ответим в течение рабочего дня.</p>
+</div></section>
+</main>
+<footer><div class="w">© КодВектор. Связаться напрямую: <a href="https://wa.me/79999993834" target="_blank" rel="noopener">WhatsApp +7 999 999-38-34</a></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ---------- 3D ---------- */
+(function(){
+ var cv=document.getElementById('gl');
+ if(!window.THREE)return;
+ var r;try{r=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true})}catch(e){return}
+ var sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(45,1,.1,100);cam.position.z=7;
+ var css=function(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()};
+ var kM=new THREE.MeshStandardMaterial({metalness:.55,roughness:.28});
+ var wM=new THREE.MeshBasicMaterial({wireframe:true,transparent:true,opacity:.3});
+ var cM=new THREE.MeshStandardMaterial({metalness:.3,roughness:.4});
+ var knot=new THREE.Mesh(new THREE.TorusKnotGeometry(1.1,.34,180,24),kM);
+ var wire=new THREE.Mesh(new THREE.IcosahedronGeometry(2.4,1),wM);
+ var g=new THREE.Group(),root=new THREE.Group();g.add(knot,wire);root.add(g);
+ var cubes=[];
+ for(var i=0;i<6;i++){var c=new THREE.Mesh(new THREE.BoxGeometry(.3,.3,.3),cM);c.userData={a:i/6*6.283,r:2.8+(i%3)*.25,s:.35+i*.06};g.add(c);cubes.push(c)}
+ var pos=new Float32Array(270*3);for(i=0;i<pos.length;i++)pos[i]=(Math.random()-.5)*16;
+ var pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+ var pM=new THREE.PointsMaterial({size:.04,transparent:true,opacity:.7});
+ var pts=new THREE.Points(pg,pM);
+ var dl=new THREE.DirectionalLight(0xffffff,1.1);dl.position.set(3,4,5);
+ var pl=new THREE.PointLight(0xff5c8a,1.3,20);pl.position.set(-4,-2,3);
+ sc.add(root,pts,new THREE.AmbientLight(0xffffff,.6),dl,pl);
+ function colors(){var a=css('--acc'),b=css('--acc2');kM.color.set(a);wM.color.set(a);cM.color.set(b);pM.color.set(b);pl.color.set(b)}
+ colors();
+ try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',colors)}catch(e){}
+ function size(){var w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return;r.setPixelRatio(Math.min(devicePixelRatio||1,2));r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
+ size();addEventListener('resize',size);
+ var mx=0,my=0;addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+ var still=matchMedia('(prefers-reduced-motion: reduce)').matches,t=0;window.__pulse=0;
+ (function loop(){
+  requestAnimationFrame(loop);
+  t+=still?.0008:.01;var p=window.__pulse;window.__pulse=p*.93;
+  knot.rotation.x=t*.6+p*3;knot.rotation.y=t*.9;wire.rotation.y=-t*.3;wire.rotation.x=t*.2;
+  cubes.forEach(function(c){var u=c.userData,k=t*u.s+u.a;c.position.set(Math.cos(k)*u.r,Math.sin(k*1.3)*1.3,Math.sin(k)*u.r);c.rotation.x=t*2;c.rotation.y=t*1.5});
+  pts.rotation.y=t*.05;
+  g.rotation.y+=(mx*1.2-g.rotation.y)*.05;g.rotation.x+=(my*.8-g.rotation.x)*.05;
+  var narrow=innerWidth<760,s=Math.min(Math.max(scrollY/Math.max(innerHeight,1),0),1.2);
+  var tx=narrow?0:2.3*(1-2*Math.min(s,1)),ty=narrow?1.7*(1-Math.min(s,1))+.3:0,sc0=(narrow?.55:.82)+p*.15;
+  root.position.x+=(tx-root.position.x)*.06;root.position.y+=(ty-root.position.y)*.06;
+  root.scale.setScalar(root.scale.x+(sc0-root.scale.x)*.08);
+  r.render(sc,cam);
+ })();
+})();
+
+/* ---------- Заявка ---------- */
+(function(){
+ var PHONE='79999993834';
+ var $=function(s){return document.querySelector(s)};
+ var ST=[
+  {k:'type',t:'Что нужно создать?',req:1,o:['Сайт-визитка или лендинг','Интернет-магазин','Веб- или мобильное приложение','Бот или автоматизация','Программа для компьютера','Другое']},
+  {k:'feat',t:'Какие функции нужны?',h:'Можно выбрать несколько — или пропустить шаг.',m:1,o:['Личный кабинет','Онлайн-оплата','Админ-панель','Интеграция с CRM','Уведомления и чат','Анимации и 3D','Несколько языков','Пока не знаю']},
+  {k:'budget',t:'Какой бюджет?',req:1,o:['до 50 000 ₽','50 000–150 000 ₽','150 000–500 000 ₽','свыше 500 000 ₽','Нужна оценка от вас']},
+  {k:'time',t:'Когда нужен результат?',req:1,o:['Срочно, до 2 недель','В течение месяца','За 1–3 месяца','Не спешу']},
+  {k:'contact',t:'Как к вам обращаться?',h:'Номер телефона не нужен — вы напишете нам в WhatsApp сами.'},
+  {k:'review',t:'Проверьте заявку',h:'Вот текст, который появится в WhatsApp. Всё верно — нажмите кнопку.'}
+ ];
+ var S={type:'',feat:[],budget:'',time:'',name:'',note:''},i=0,last=ST.length-1;
+ var panel=$('#panel'),bar=$('#bar'),back=$('#back'),next=$('#next'),send=$('#send'),err=$('#err'),cnt=$('#cnt');
+ function msg(){
+  var L=['Здравствуйте! Хочу оформить заявку на разработку.','','Что нужно: '+S.type,'Функции: '+(S.feat.join(', ')||'пока не определены'),'Бюджет: '+S.budget,'Сроки: '+S.time,'Имя: '+S.name];
+  if(S.note)L.push('Комментарий: '+S.note);
+  return L.join('\n');
+ }
+ function pulse(){window.__pulse=1}
+ function render(){
+  var s=ST[i];err.textContent='';
+  bar.innerHTML=ST.map(function(_,j){return '<i class="'+(j<=i?'on':'')+'"></i>'}).join('');
+  cnt.textContent='Шаг '+(i+1)+' из '+ST.length;
+  panel.classList.remove('in');panel.innerHTML='';void panel.offsetWidth;panel.classList.add('in');
+  var h=document.createElement('h3');h.textContent=s.t;h.tabIndex=-1;panel.appendChild(h);
+  if(s.h){var p=document.createElement('p');p.className='hint';p.textContent=s.h;panel.appendChild(p)}
+  if(s.o){
+   var w=document.createElement('div');w.className='opts';var bs=[];
+   var on=function(o){return s.m?S.feat.indexOf(o)>-1:S[s.k]===o};
+   var sync=function(){bs.forEach(function(x){x[0].setAttribute('aria-pressed',on(x[1]))})};
+   s.o.forEach(function(o){
+    var b=document.createElement('button');b.type='button';b.className='opt';b.textContent=o;bs.push([b,o]);
+    b.onclick=function(){
+     if(s.m){S.feat=on(o)?S.feat.filter(function(x){return x!==o}):S.feat.concat(o)}else{S[s.k]=o}
+     err.textContent='';sync();pulse();
+    };
+    w.appendChild(b);
+   });
+   sync();panel.appendChild(w);
+  }
+  if(s.k==='contact'){
+   panel.insertAdjacentHTML('beforeend','<label>Ваше имя<input id="nm" autocomplete="name" maxlength="60"></label><label>Коротко о задаче (по желанию)<textarea id="nt" rows="4" maxlength="400"></textarea></label>');
+   var nm=$('#nm'),nt=$('#nt');nm.value=S.name;nt.value=S.note;
+   nm.oninput=function(){S.name=nm.value.trim();err.textContent=''};
+   nt.oninput=function(){S.note=nt.value.trim()};
+  }
+  if(s.k==='review'){
+   var pre=document.createElement('pre');pre.textContent=msg();panel.appendChild(pre);
+   send.href='https://wa.me/'+PHONE+'?text='+encodeURIComponent(msg());
+  }
+  back.style.visibility=i?'visible':'hidden';
+  next.hidden=i===last;send.hidden=i!==last;
+ }
+ function go(d){
+  if(d>0){
+   var s=ST[i];
+   if(s.req&&!S[s.k]){err.textContent='Выберите вариант, чтобы продолжить.';return}
+   if(s.k==='contact'&&!S.name){err.textContent='Укажите имя, чтобы мы знали, как к вам обращаться.';return}
+  }
+  i+=d;render();pulse();
+  var h=panel.querySelector('h3');if(h)h.focus({preventScroll:true});
+ }
+ next.onclick=function(){go(1)};back.onclick=function(){go(-1)};
+ send.addEventListener('click',pulse);
+ render();
+})();
+</script>
+</body>
+</html>
