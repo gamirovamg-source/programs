@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
@@ -6,149 +6,284 @@
 <title>КодВектор — закажите сайт или программу</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap">
 <style>
-:root{--bg:#EDEFFF;--ink:#12143A;--mut:#53578A;--surf:#FFFFFF;--line:#C5CBF5;--acc:#3A3DFF;--acc2:#FF5C8A;--on:#FFFFFF;
---f1:'Unbounded','Onest',system-ui,sans-serif;--f2:'Onest',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color-scheme:light;
+:root{--bg:#000;--card:#0d0d0f;--chip:#1b1b1e;--ink:#fff;--mut:#8b8b93;--line:rgba(255,255,255,.12);--acc:#fff;--hot:#ff4d6d;--f:'Onest',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color-scheme:dark;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D0F2B;--ink:#EEF0FF;--mut:#9EA3D6;--surf:#171A46;--line:#2B2F6B;--acc:#7C8BFF;--acc2:#FF7AA2;--on:#0D0F2B;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0D0F2B;--ink:#EEF0FF;--mut:#9EA3D6;--surf:#171A46;--line:#2B2F6B;--acc:#7C8BFF;--acc2:#FF7AA2;--on:#0D0F2B;color-scheme:dark}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth;height:100%}
 *,*::before,*::after{box-sizing:inherit}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--f2);-webkit-font-smoothing:antialiased}
-#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-main,header,footer{position:relative;z-index:1}
-.w{max-width:1100px;margin:0 auto;padding-inline:clamp(18px,5vw,40px)}
-header .w{display:flex;justify-content:space-between;align-items:center;padding-block:18px}
-.logo{font:700 1.15rem var(--f1);letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
-.pill{display:inline-block;padding:12px 22px;border-radius:999px;background:var(--acc);color:var(--on);font:600 .95rem var(--f2);text-decoration:none;border:0;cursor:pointer;transition:transform .2s}
-.pill:hover{transform:translateY(-2px)}
-.pill.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-:focus-visible{outline:3px solid var(--acc2);outline-offset:3px}
-.hero{min-height:min(86vh,760px);display:flex;align-items:center;padding-block:40px}
-h1{font:700 clamp(2rem,6.4vw,4rem)/1.08 var(--f1);letter-spacing:-.03em;margin:0 0 22px;max-width:14em}
-.l{display:block;animation:up .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--d)*.13s)}
-@keyframes up{from{transform:translateY(45%);opacity:0}}
-.sub{max-width:30em;color:var(--mut);font-size:1.15rem;margin:0 0 30px;animation:up .9s .45s cubic-bezier(.2,.8,.2,1) both}
-.cta{display:flex;gap:12px;flex-wrap:wrap;animation:up .9s .6s cubic-bezier(.2,.8,.2,1) both}
-h2{font:700 clamp(1.5rem,4vw,2.3rem)/1.15 var(--f1);letter-spacing:-.02em;margin:0 0 28px}
-.svc{list-style:none;margin:0 0 90px;padding:0;max-width:640px}
-.svc li{padding:20px 0;border-top:1px solid var(--line);transition:padding .25s}
-.svc li:hover{padding-left:12px}
-.svc h3{font:600 1.15rem var(--f2);margin:0 0 4px}
-.svc p{margin:0;color:var(--mut)}
-#order{padding-bottom:80px}
-.wiz{background:color-mix(in srgb,var(--surf) 90%,transparent);border:1px solid var(--line);border-radius:24px;padding:clamp(18px,4vw,36px);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);max-width:760px}
+body{margin:0;min-height:100%;background:radial-gradient(700px 500px at 85% 5%,rgba(124,92,255,.28),transparent 65%),radial-gradient(800px 600px at 5% 55%,rgba(255,77,109,.14),transparent 65%),radial-gradient(900px 600px at 70% 100%,rgba(40,120,255,.2),transparent 65%),#02020a;background-attachment:fixed;color:var(--ink);font:400 1rem/1.5 var(--f);-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+.w{max-width:620px;margin:0 auto;padding-inline:16px}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+header .w{display:flex;justify-content:space-between;align-items:center;padding-block:16px}
+.logo{font:800 1.25rem var(--f);letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 22px;border-radius:18px;background:#fff;color:#000;font:600 1rem var(--f);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .2s}
+.btn:active{transform:scale(.97)}
+.btn.dk{background:#1c1c1f;color:#fff;border-color:var(--line)}
+.btn.sm{padding:10px 16px;border-radius:14px;font-size:.9rem}
+:focus-visible{outline:3px solid var(--hot);outline-offset:3px}
+#sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+header,main,footer{position:relative;z-index:1}
+.card{position:relative;background:linear-gradient(160deg,rgba(22,22,30,.78),rgba(6,6,12,.82));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:30px;overflow:hidden}
+/* hero card */
+.hero{padding:28px 24px 24px;margin-top:6px;box-shadow:0 0 60px rgba(255,255,255,.06),inset 0 0 40px rgba(255,255,255,.03)}
+.big{font:800 clamp(4.5rem,24vw,6.5rem)/.95 var(--f);letter-spacing:-.05em;display:flex;align-items:baseline;gap:12px}
+.big small{font:500 1.25rem var(--f);letter-spacing:0;color:var(--mut)}
+.hero h1{font:700 clamp(1.5rem,6.4vw,2rem)/1.15 var(--f);letter-spacing:-.02em;margin:18px 0 6px;max-width:12em}
+.hero p{margin:0 0 22px;color:var(--mut)}
+.row{display:flex;gap:12px}.row .btn{flex:1;padding-inline:10px}
+.orb{position:absolute;top:-34px;right:-26px;width:150px;height:150px;animation:fl 7s ease-in-out infinite}
+.orb::before{content:"";position:absolute;inset:34px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#fff 0,#9a9aa2 28%,#2a2a2f 62%,#050506 100%);box-shadow:0 0 40px rgba(255,255,255,.25)}
+.orb::after{content:"";position:absolute;left:-14px;right:-14px;top:52px;bottom:52px;border-radius:50%;border:2px solid rgba(255,255,255,.55);transform:rotate(-14deg);box-shadow:0 0 14px rgba(255,255,255,.35)}
+@keyframes fl{50%{transform:translateY(8px) rotate(4deg)}}
+/* banner */
+.ban{display:flex;align-items:center;gap:14px;padding:16px 18px;margin-top:12px;border-radius:24px;text-decoration:none;color:var(--ink)}
+.ban .e{font-size:2rem;line-height:1}
+.ban b{display:block;font-weight:600}.ban span{color:var(--mut);font-size:.95rem}
+.ban .i{margin-left:auto;color:var(--mut);width:18px}
+/* tiles */
+h2{font:700 1.5rem/1.2 var(--f);letter-spacing:-.02em;margin:34px 4px 14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{padding:18px 16px 18px;min-height:150px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .2s,border-color .2s}
+.tile:hover{border-color:rgba(255,255,255,.3);transform:translateY(-3px)}
+.ic{width:50px;height:50px;border-radius:15px;background:var(--chip);border:1px solid var(--line);display:grid;place-items:center;margin-bottom:auto}
+.tile h3{font:700 1.15rem/1.2 var(--f);margin:18px 0 4px;letter-spacing:-.01em}
+.tile p{margin:0;color:var(--mut);font-size:.9rem;line-height:1.35}
+/* wizard */
+#order{padding-bottom:40px}
+.wiz{padding:22px 20px}
 .bar{display:flex;gap:6px;margin-bottom:10px}
-.bar i{flex:1;height:5px;border-radius:9px;background:var(--line);transition:background .4s}
-.bar i.on{background:var(--acc)}
-#cnt{margin:0 0 22px;color:var(--mut);font-size:.9rem}
+.bar i{flex:1;height:5px;border-radius:9px;background:#26262b;transition:background .4s}
+.bar i.on{background:#fff}
+#cnt{margin:0 0 20px;color:var(--mut);font-size:.9rem}
 #panel.in{animation:slide .45s cubic-bezier(.2,.8,.2,1)}
 @keyframes slide{from{opacity:0;transform:translateX(24px)}}
-#panel h3{font:600 1.35rem/1.25 var(--f2);margin:0 0 6px;outline:0}
-.hint{margin:0 0 16px;color:var(--mut)}
-.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:16px}
-.opt{font:500 1rem var(--f2);color:var(--ink);text-align:left;padding:15px 16px;border-radius:14px;border:1.5px solid var(--line);background:transparent;cursor:pointer;transition:border-color .2s,background .2s,transform .15s}
-.opt:hover{border-color:var(--acc)}
-.opt[aria-pressed="true"]{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 16%,transparent);transform:scale(1.02)}
+#panel h3{font:700 1.35rem/1.25 var(--f);margin:0 0 6px;outline:0}
+.hint{margin:0 0 14px;color:var(--mut)}
+.opts{display:grid;gap:10px;margin-top:14px}
+.opt{font:500 1rem var(--f);color:var(--ink);text-align:left;padding:15px 16px;border-radius:16px;border:1px solid var(--line);background:var(--chip);cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.opt:hover{border-color:rgba(255,255,255,.4)}
+.opt[aria-pressed="true"]{background:#fff;color:#000;border-color:#fff}
 label{display:block;margin-top:16px;font-weight:500}
-input,textarea{display:block;width:100%;margin-top:6px;padding:13px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:400 1rem var(--f2)}
-pre{white-space:pre-wrap;word-break:break-word;margin:16px 0 0;padding:16px;border-radius:14px;background:var(--bg);border:1px solid var(--line);font:400 .95rem/1.55 var(--f2)}
-#err{min-height:1.4em;margin:14px 0 0;color:var(--acc2);font-weight:500}
-.nav{display:flex;justify-content:space-between;gap:10px;margin-top:8px}
+input,textarea{display:block;width:100%;margin-top:6px;padding:14px;border-radius:14px;border:1px solid var(--line);background:var(--chip);color:var(--ink);font:400 1rem var(--f)}
+pre{white-space:pre-wrap;word-break:break-word;margin:16px 0 0;padding:16px;border-radius:16px;background:var(--chip);border:1px solid var(--line);font:400 .95rem/1.55 var(--f)}
+#err{min-height:1.4em;margin:12px 0 0;color:var(--hot);font-weight:500}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:6px}
 #send{background:#25D366;color:#06240F}
-.note{margin-top:18px;color:var(--mut);font-size:.95rem;max-width:760px}
-footer{padding:26px 0 40px;color:var(--mut);border-top:1px solid var(--line)}
+.note{margin:14px 6px 0;color:var(--mut);font-size:.92rem}
+footer{padding:18px 0 130px;color:var(--mut)}
 footer a{color:var(--ink)}
-@media (max-width:700px){.hero{min-height:auto;padding-block:30px 60px}.opts{grid-template-columns:1fr}}
+/* bottom nav */
+.dock{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:20;display:flex;gap:2px;padding:7px;width:min(calc(100% - 24px),560px);border-radius:999px;background:rgba(22,22,25,.78);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 10px 40px rgba(0,0,0,.6)}
+.dock a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 4px;border-radius:999px;color:var(--mut);text-decoration:none;font-size:.72rem;font-weight:500;transition:background .3s,color .3s}
+.dock a.on{background:#fff;color:#000}
+/* intro */
+#intro{position:fixed;inset:0;z-index:100;background:#030306;overflow:hidden;transition:opacity .9s ease}
+#intro.out{opacity:0;pointer-events:none}
+#scene{position:absolute;left:50%;top:50%;width:1000px;height:600px;margin:-300px 0 0 -500px;will-change:transform}
+#scene svg{position:absolute;inset:0;width:100%;height:100%}
+#scr{position:absolute;left:578px;top:148px;width:304px;height:214px;padding:12px 14px;background:#07070c;color:#fff;font:500 11px/1.3 var(--f);overflow:hidden;border-radius:4px;box-shadow:0 0 30px rgba(124,92,255,.35)}
+#scr .mb{display:flex;gap:3px;margin-bottom:6px}#scr .mb i{flex:1;height:3px;border-radius:3px;background:#26262b;transition:background .3s}#scr .mb i.on{background:#fff}
+#scr h4{margin:0 0 7px;font:700 14px var(--f)}
+#scr .o{display:block;padding:7px 9px;margin-bottom:5px;border-radius:8px;border:1px solid rgba(255,255,255,.14);background:#1b1b1e;transition:all .25s}
+#scr .o.s{background:#fff;color:#000}
+#scr .g{position:absolute;left:14px;right:14px;bottom:12px;padding:8px;border-radius:9px;background:#fff;color:#000;text-align:center;font-weight:700;transition:all .2s}
+#scr .g.p{transform:scale(.94);background:#25D366}
+#scr .cur{position:absolute;width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.9);box-shadow:0 0 10px #fff;transition:left .45s ease,top .45s ease;left:230px;top:80px;pointer-events:none}
+#enter{transition:transform .08s,fill .2s}
+#enter.dn{transform:translateY(4px);fill:#ff4d6d;filter:drop-shadow(0 0 10px #ff4d6d)}
+.hand{animation:tp .22s ease-in-out infinite alternate;transform-box:fill-box}
+.hand.b{animation-delay:.11s}
+.still .hand{animation:none}
+@keyframes tp{to{transform:translateY(-5px)}}
+#skip{position:absolute;right:16px;top:calc(16px + env(safe-area-inset-top,0px));z-index:3;background:rgba(255,255,255,.1);color:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font:500 .9rem var(--f);cursor:pointer}
+#wht{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none;transition:opacity .5s}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
-<body>
-<canvas id="gl" aria-hidden="true"></canvas>
-<header><div class="w"><a class="logo" href="#top">Заказ Код</a><a class="pill" href="#order">Оставить заявку</a></div></header>
-<main id="top">
-<section class="hero"><div class="w">
-<h1><span class="l" style="--d:1">Пишем сайты,</span><span class="l" style="--d:2">приложения и ботов</span><span class="l" style="--d:3">под ключ</span></h1>
-<p class="sub">Расскажите о задаче за шесть коротких шагов — готовая заявка сама откроется в WhatsApp. Останется нажать «Отправить».</p>
-<div class="cta"><a class="pill" href="#order">Оформить заявку</a><a class="pill ghost" href="#services">Что мы делаем</a></div>
-</div></section>
-<section id="services"><div class="w">
-<h2>Что мы разрабатываем</h2>
-<ul class="svc">
-<li><h3>Сайты и интернет-магазины</h3><p>От лендинга до магазина с оплатой, анимациями и 3D-графикой.</p></li>
-<li><h3>Веб- и мобильные приложения</h3><p>Личные кабинеты, сервисы, внутренние системы для бизнеса.</p></li>
-<li><h3>Боты и автоматизация</h3><p>Боты для Telegram и WhatsApp, интеграции с CRM и платёжными сервисами.</p></li>
-<li><h3>Программы для компьютера</h3><p>Утилиты и рабочие инструменты для Windows, macOS и Linux.</p></li>
-</ul>
-</div></section>
-<section id="order"><div class="w">
-<h2>Заявка по шагам</h2>
-<div class="wiz">
-<div class="bar" id="bar"></div>
-<p id="cnt"></p>
-<div id="panel"></div>
-<p id="err" role="alert"></p>
-<div class="nav">
-<button type="button" class="pill ghost" id="back">Назад</button>
-<button type="button" class="pill" id="next">Далее</button>
-<a class="pill" id="send" target="_blank" rel="noopener" hidden>Отправить в WhatsApp</a>
-</div>
-</div>
-<p class="note">WhatsApp откроется с уже написанным текстом заявки на номер +7 999 999-38-34. Ответим в течение рабочего дня.</p>
-</div></section>
-</main>
-<footer><div class="w">© КодВектор. Связаться напрямую: <a href="https://wa.me/79999993834" target="_blank" rel="noopener">WhatsApp +7 999 999-38-34</a></div></footer>
+<body class="lock">
+<canvas id="sky" aria-hidden="true"></canvas>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<div id="intro" aria-hidden="true">
+ <button id="skip" type="button">Пропустить</button>
+ <div id="scene">
+  <svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+   <defs>
+    <radialGradient id="glow" cx="72%" cy="40%" r="55%"><stop offset="0" stop-color="#46f09a" stop-opacity=".22"/><stop offset="1" stop-color="#46f09a" stop-opacity="0"/></radialGradient>
+    <linearGradient id="fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c0c14"/><stop offset="1" stop-color="#15151f"/></linearGradient>
+   </defs>
+   <rect width="1000" height="600" fill="#05050a"/><rect width="1000" height="600" fill="url(#glow)"/>
+   <rect y="545" width="1000" height="55" fill="url(#fl)"/>
+   <!-- led strip -->
+   <rect x="40" y="70" width="920" height="3" rx="2" fill="#7c5cff" opacity=".7"/>
+   <!-- desk -->
+   <rect x="420" y="440" width="580" height="16" rx="4" fill="#23232e"/><rect x="940" y="456" width="14" height="90" fill="#1a1a23"/>
+   <!-- monitor -->
+   <rect x="560" y="130" width="340" height="250" rx="12" fill="#14141c" stroke="#2c2c3a" stroke-width="3"/>
+   <rect x="566" y="136" width="328" height="238" rx="6" fill="#050d09"/>
+   <rect x="716" y="380" width="28" height="48" fill="#1a1a23"/><rect x="670" y="428" width="120" height="12" rx="5" fill="#23232e"/>
+   <!-- keyboard -->
+   <rect x="470" y="424" width="260" height="16" rx="5" fill="#1a1a24" stroke="#7c5cff" stroke-opacity=".6"/>
+   <g fill="#2e2e3d"><rect x="480" y="418" width="30" height="7" rx="2"/><rect x="516" y="418" width="30" height="7" rx="2"/><rect x="552" y="418" width="30" height="7" rx="2"/><rect x="588" y="418" width="30" height="7" rx="2"/><rect x="624" y="418" width="30" height="7" rx="2"/></g>
+   <rect id="enter" x="662" y="416" width="56" height="9" rx="3" fill="#8f7bff"/>
+   <!-- chair -->
+   <g>
+    <path d="M150 190 Q150 170 175 170 L225 170 Q250 170 250 190 L262 400 Q262 430 235 432 L170 432 Q145 430 148 400 Z" fill="#14141c" stroke="#ff4d6d" stroke-width="4"/>
+    <rect x="178" y="130" width="62" height="56" rx="18" fill="#14141c" stroke="#ff4d6d" stroke-width="4"/>
+    <path d="M160 200 L168 340" stroke="#ff4d6d" stroke-width="5" opacity=".8"/>
+    <rect x="165" y="415" width="190" height="34" rx="14" fill="#1a1a24" stroke="#ff4d6d" stroke-width="4"/>
+    <rect x="248" y="449" width="16" height="70" fill="#2c2c3a"/>
+    <path d="M170 530 H342 M256 519 L170 530 M256 519 L342 530" stroke="#2c2c3a" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="170" cy="540" r="9" fill="#0a0a10"/><circle cx="342" cy="540" r="9" fill="#0a0a10"/><circle cx="256" cy="545" r="9" fill="#0a0a10"/>
+   </g>
+   <!-- person -->
+   <path d="M215 235 Q250 228 300 262 L330 330 L352 420 L295 424 L268 350 L214 390 L190 330 Z" fill="#2a2a3b"/>
+   <path d="M290 270 Q360 305 440 392 L470 408" stroke="#2a2a3b" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+   <path d="M352 420 L430 428 L440 520" stroke="#1f1f2c" stroke-width="32" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+   <rect x="415" y="515" width="64" height="22" rx="10" fill="#e8e8f0"/>
+   <circle cx="268" cy="205" r="34" fill="#d7a98b"/>
+   <path d="M232 205 Q232 160 272 164 Q310 168 302 200 Q280 180 232 205Z" fill="#14141c"/>
+   <path d="M232 200 Q226 150 275 150 Q320 150 304 200" fill="none" stroke="#ff4d6d" stroke-width="7"/>
+   <rect x="224" y="196" width="16" height="30" rx="8" fill="#ff4d6d"/>
+   <g class="hand a"><rect x="456" y="396" width="44" height="22" rx="10" fill="#d7a98b"/></g>
+   <g class="hand b"><rect x="500" y="398" width="30" height="18" rx="8" fill="#d7a98b"/></g>
+  </svg>
+  <div id="scr"></div>
+ </div>
+ <div id="wht"></div>
+</div>
+
+<header><div class="w"><a class="logo" href="#top">КодВектор</a><a class="btn sm" href="#order">Заявка</a></div></header>
+<main id="top">
+<div class="w">
+ <section class="card hero">
+  <div class="orb" aria-hidden="true"></div>
+  <div class="big">6<small>шагов</small></div>
+  <h1>Сайты, приложения и боты под ключ</h1>
+  <p>Заявка откроется в WhatsApp — останется нажать «Отправить».</p>
+  <div class="row"><a class="btn" href="#order">Оформить заявку</a><a class="btn dk" href="#services">Что делаем</a></div>
+ </section>
+ <a class="card ban" href="#order"><span class="e">💬</span><div><b>Ответим в течение рабочего дня</b><span>Без звонков и регистрации</span></div><svg class="i" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></a>
+
+ <section id="services">
+  <h2>Что мы разрабатываем</h2>
+  <div class="grid">
+   <div class="card tile"><div class="ic"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="3"/><path d="M8 21h8M12 18v3"/></svg></div><h3>Сайты и магазины</h3><p>Лендинги, оплата, анимации, 3D</p></div>
+   <div class="card tile"><div class="ic"><svg class="i" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="3"/><path d="M11 18h2"/></svg></div><h3>Приложения</h3><p>Кабинеты, сервисы, системы</p></div>
+   <div class="card tile"><div class="ic"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="4"/><path d="M12 4v4M9 13v1M15 13v1"/></svg></div><h3>Боты</h3><p>Telegram, WhatsApp, CRM</p></div>
+   <div class="card tile"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></div><h3>Программы</h3><p>Windows, macOS, Linux</p></div>
+  </div>
+ </section>
+
+ <section id="order">
+  <h2>Заявка по шагам</h2>
+  <div class="card wiz">
+   <div class="bar" id="bar"></div><p id="cnt"></p>
+   <div id="panel"></div>
+   <p id="err" role="alert"></p>
+   <div class="nav">
+    <button type="button" class="btn dk" id="back">Назад</button>
+    <button type="button" class="btn" id="next">Далее</button>
+    <a class="btn" id="send" target="_blank" rel="noopener" hidden>Отправить в WhatsApp</a>
+   </div>
+  </div>
+  <p class="note">WhatsApp откроется с готовым текстом заявки на номер 8-909-080-5555.</p>
+ </section>
+</div>
+</main>
+<footer id="contact"><div class="w">© КодВектор. Напрямую: <a href="https://wa.me/79090805555" target="_blank" rel="noopener">WhatsApp 8-909-080-5555</a></div></footer>
+
+<nav class="dock" aria-label="Разделы">
+ <a href="#top" class="on"><svg class="i" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v9H4z"/></svg>Главная</a>
+ <a href="#services"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>Услуги</a>
+ <a href="#order"><svg class="i" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h7"/></svg>Заявка</a>
+ <a href="#contact"><svg class="i" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>Связь</a>
+</nav>
+
 <script>
-/* ---------- 3D ---------- */
+/* ---------- Интро (5 секунд) ---------- */
 (function(){
- var cv=document.getElementById('gl');
- if(!window.THREE)return;
- var r;try{r=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true})}catch(e){return}
- var sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(45,1,.1,100);cam.position.z=7;
- var css=function(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()};
- var kM=new THREE.MeshStandardMaterial({metalness:.55,roughness:.28});
- var wM=new THREE.MeshBasicMaterial({wireframe:true,transparent:true,opacity:.3});
- var cM=new THREE.MeshStandardMaterial({metalness:.3,roughness:.4});
- var knot=new THREE.Mesh(new THREE.TorusKnotGeometry(1.1,.34,180,24),kM);
- var wire=new THREE.Mesh(new THREE.IcosahedronGeometry(2.4,1),wM);
- var g=new THREE.Group(),root=new THREE.Group();g.add(knot,wire);root.add(g);
- var cubes=[];
- for(var i=0;i<6;i++){var c=new THREE.Mesh(new THREE.BoxGeometry(.3,.3,.3),cM);c.userData={a:i/6*6.283,r:2.8+(i%3)*.25,s:.35+i*.06};g.add(c);cubes.push(c)}
- var pos=new Float32Array(270*3);for(i=0;i<pos.length;i++)pos[i]=(Math.random()-.5)*16;
- var pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
- var pM=new THREE.PointsMaterial({size:.04,transparent:true,opacity:.7});
- var pts=new THREE.Points(pg,pM);
- var dl=new THREE.DirectionalLight(0xffffff,1.1);dl.position.set(3,4,5);
- var pl=new THREE.PointLight(0xff5c8a,1.3,20);pl.position.set(-4,-2,3);
- sc.add(root,pts,new THREE.AmbientLight(0xffffff,.6),dl,pl);
- function colors(){var a=css('--acc'),b=css('--acc2');kM.color.set(a);wM.color.set(a);cM.color.set(b);pM.color.set(b);pl.color.set(b)}
- colors();
- try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',colors)}catch(e){}
- function size(){var w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return;r.setPixelRatio(Math.min(devicePixelRatio||1,2));r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
+ var intro=document.getElementById('intro'),sc=document.getElementById('scene'),scr=document.getElementById('scr'),
+  ent=document.getElementById('enter'),wht=document.getElementById('wht'),done=false,T=[];
+ function later(f,ms){T.push(setTimeout(f,ms))}
+ function fit(){return Math.min(innerWidth/1000,innerHeight/600)*(innerWidth<700?1.5:1)}
+ function finish(){
+  if(done)return;done=true;T.forEach(clearTimeout);
+  intro.classList.add('out');document.body.classList.remove('lock');
+  setTimeout(function(){intro.remove()},1000);
+ }
+ document.getElementById('skip').onclick=finish;
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches){finish();return}
+ sc.style.transform='scale('+fit()+')';addEventListener('resize',function(){if(!done&&!sc.dataset.z)sc.style.transform='scale('+fit()+')'});
+ var steps=[
+  {t:'Что нужно создать?',o:['Сайт или лендинг','Интернет-магазин','Приложение']},
+  {t:'Какой бюджет?',o:['до 50 000 ₽','50 000–150 000 ₽','Нужна оценка']},
+  {t:'Проверьте заявку',o:['Сайт или лендинг','50 000–150 000 ₽','Имя: Алексей']}
+ ];
+ function draw(n,sel,btn){
+  var s=steps[n];
+  scr.innerHTML='<div class="mb">'+steps.map(function(_,j){return '<i class="'+(j<=n?'on':'')+'"></i>'}).join('')+'</div><h4>'+s.t+'</h4>'+
+   s.o.map(function(o,j){return '<span class="o'+(j===sel||n===2?' s':'')+'">'+o+'</span>'}).join('')+
+   '<div class="g">'+(n===2?'Отправить в WhatsApp':'Далее')+'</div><div class="cur"></div>';
+  scr.querySelector('.g').className='g'+(btn?' p':'');
+ }
+ function cur(x,y){var c=scr.querySelector('.cur');if(c){c.style.left=x+'px';c.style.top=y+'px'}}
+ /* таймлайн, мс */
+ draw(0,-1);
+ later(function(){cur(40,50)},200);
+ later(function(){draw(0,0);cur(40,50)},750);
+ later(function(){cur(140,184)},1050);
+ later(function(){draw(0,0,1)},1350);
+ later(function(){draw(1,-1);cur(140,184)},1550);
+ later(function(){cur(60,72)},1700);
+ later(function(){draw(1,1);cur(60,72)},2000);
+ later(function(){cur(140,184)},2150);
+ later(function(){draw(1,1,1)},2400);
+ later(function(){draw(2,-1);cur(140,184)},2600);
+ later(function(){draw(2,-1,1);ent.classList.add('dn')},3000);
+ later(function(){ent.classList.remove('dn');zoom()},3250);
+ function zoom(){
+  if(done)return;
+  var z=Math.max(innerWidth/304,innerHeight/214)*1.04;
+  sc.dataset.z=1;sc.classList.add('still');
+  sc.style.transformOrigin='722px 255px';
+  sc.style.transition='transform 1.5s cubic-bezier(.65,0,.25,1)';
+  sc.style.transform='scale('+z+')';
+  later(function(){wht.style.opacity=1},1250);
+ }
+ later(finish,5000);
+})();
+
+/* ---------- Космос ---------- */
+(function(){
+ var c=document.getElementById('sky'),x=c.getContext('2d'),S=[],W,H,still=matchMedia('(prefers-reduced-motion: reduce)').matches,sh=null;
+ function size(){var d=Math.min(devicePixelRatio||1,2);W=c.width=innerWidth*d;H=c.height=innerHeight*d;S=[];
+  for(var i=0;i<Math.round(innerWidth*innerHeight/5500);i++)S.push({x:Math.random()*W,y:Math.random()*H,r:(Math.random()*1.3+.3)*d,p:Math.random()*6.28,s:.4+Math.random()*1.4,v:Math.random()*.06*d+.01})}
  size();addEventListener('resize',size);
- var mx=0,my=0;addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
- var still=matchMedia('(prefers-reduced-motion: reduce)').matches,t=0;window.__pulse=0;
- (function loop(){
-  requestAnimationFrame(loop);
-  t+=still?.0008:.01;var p=window.__pulse;window.__pulse=p*.93;
-  knot.rotation.x=t*.6+p*3;knot.rotation.y=t*.9;wire.rotation.y=-t*.3;wire.rotation.x=t*.2;
-  cubes.forEach(function(c){var u=c.userData,k=t*u.s+u.a;c.position.set(Math.cos(k)*u.r,Math.sin(k*1.3)*1.3,Math.sin(k)*u.r);c.rotation.x=t*2;c.rotation.y=t*1.5});
-  pts.rotation.y=t*.05;
-  g.rotation.y+=(mx*1.2-g.rotation.y)*.05;g.rotation.x+=(my*.8-g.rotation.x)*.05;
-  var narrow=innerWidth<760,s=Math.min(Math.max(scrollY/Math.max(innerHeight,1),0),1.2);
-  var tx=narrow?0:2.3*(1-2*Math.min(s,1)),ty=narrow?1.7*(1-Math.min(s,1))+.3:0,sc0=(narrow?.55:.82)+p*.15;
-  root.position.x+=(tx-root.position.x)*.06;root.position.y+=(ty-root.position.y)*.06;
-  root.scale.setScalar(root.scale.x+(sc0-root.scale.x)*.08);
-  r.render(sc,cam);
- })();
+ function f(t){
+  x.clearRect(0,0,W,H);
+  S.forEach(function(s){var a=.45+.55*Math.sin(t/1000*s.s+s.p);x.globalAlpha=Math.max(a,.1);x.fillStyle=s.r>1.2?'#cfd8ff':'#fff';x.beginPath();x.arc(s.x,s.y,s.r,0,6.28);x.fill();if(!still){s.y+=s.v;if(s.y>H)s.y=0}});
+  if(!still){
+   if(!sh&&Math.random()<.004)sh={x:Math.random()*W*.8+W*.2,y:Math.random()*H*.4,l:0};
+   if(sh){x.globalAlpha=1-sh.l/60;var g=x.createLinearGradient(sh.x,sh.y,sh.x+90,sh.y-45);g.addColorStop(0,'#fff');g.addColorStop(1,'rgba(255,255,255,0)');x.strokeStyle=g;x.lineWidth=2;x.beginPath();x.moveTo(sh.x,sh.y);x.lineTo(sh.x+90,sh.y-45);x.stroke();sh.x-=9;sh.y+=4.5;if(++sh.l>60)sh=null}
+   requestAnimationFrame(f)}
+ }
+ requestAnimationFrame(f);
+})();
+
+/* ---------- Нижнее меню ---------- */
+(function(){
+ var ls=[].slice.call(document.querySelectorAll('.dock a'));
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(e.isIntersecting)ls.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})
+ })},{rootMargin:'-40% 0px -50% 0px'});
+ ['top','services','order','contact'].forEach(function(id){var n=document.getElementById(id);if(n)io.observe(n)});
 })();
 
 /* ---------- Заявка ---------- */
 (function(){
- var PHONE='79999993834';
+ var PHONE='79090805555';
  var $=function(s){return document.querySelector(s)};
  var ST=[
   {k:'type',t:'Что нужно создать?',req:1,o:['Сайт-визитка или лендинг','Интернет-магазин','Веб- или мобильное приложение','Бот или автоматизация','Программа для компьютера','Другое']},
@@ -165,7 +300,6 @@ footer a{color:var(--ink)}
   if(S.note)L.push('Комментарий: '+S.note);
   return L.join('\n');
  }
- function pulse(){window.__pulse=1}
  function render(){
   var s=ST[i];err.textContent='';
   bar.innerHTML=ST.map(function(_,j){return '<i class="'+(j<=i?'on':'')+'"></i>'}).join('');
@@ -181,7 +315,7 @@ footer a{color:var(--ink)}
     var b=document.createElement('button');b.type='button';b.className='opt';b.textContent=o;bs.push([b,o]);
     b.onclick=function(){
      if(s.m){S.feat=on(o)?S.feat.filter(function(x){return x!==o}):S.feat.concat(o)}else{S[s.k]=o}
-     err.textContent='';sync();pulse();
+     err.textContent='';sync();
     };
     w.appendChild(b);
    });
@@ -206,11 +340,10 @@ footer a{color:var(--ink)}
    if(s.req&&!S[s.k]){err.textContent='Выберите вариант, чтобы продолжить.';return}
    if(s.k==='contact'&&!S.name){err.textContent='Укажите имя, чтобы мы знали, как к вам обращаться.';return}
   }
-  i+=d;render();pulse();
+  i+=d;render();
   var h=panel.querySelector('h3');if(h)h.focus({preventScroll:true});
  }
  next.onclick=function(){go(1)};back.onclick=function(){go(-1)};
- send.addEventListener('click',pulse);
  render();
 })();
 </script>
